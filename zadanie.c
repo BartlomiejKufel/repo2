@@ -1,5 +1,22 @@
 #include <stdio.h>
 
+float podatek(float podstawa){
+    if(podstawa <= 0)
+        return 0;
+    
+    if(podstawa <= 85528){
+        float tmp = (podstawa/100) * 18;
+        return tmp - 556.02;
+    }
+    else{
+        float nadwyzka = podstawa - 85528;
+        float tmp = (nadwyzka/100) * 32;
+        return 14839.02 + tmp; 
+    }
+}
+
+
+
 void podzielnosc(int x, int y){
     if(x % y == 0)
         printf("x jest podzielne przez y");
@@ -30,6 +47,8 @@ int main()
     printf("\n%d", signum(-12));
 
     podzielnosc(4,2);
+        
+    printf("%.2f", podatek(8529));
     
     return 0;
 }
